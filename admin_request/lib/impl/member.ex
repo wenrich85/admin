@@ -6,6 +6,7 @@ defmodule AdminRequest.Impl.Member do
   embedded_schema do
     field :name, :string
     field :email, :string
+    field :color, :string
   end
 
   def new(member) do
