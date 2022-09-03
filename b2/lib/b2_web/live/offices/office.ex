@@ -10,7 +10,7 @@ defmodule B2Web.Live.Offices.Office do
     ~H"""
 
       <div class= {"office office-animate "<> class() } >
-        <p><%= @office_symbol %></p>
+        <p><%= live_redirect @office_symbol, to: Routes.office_path(@socket, :index, @office_symbol) %></p>
       </div>
 
   """

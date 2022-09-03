@@ -18,7 +18,7 @@ defmodule B2Web.Router do
     pipe_through :browser
 
     live "/", Live.Offices, :index
-    live "/", Live.Offices, :new
+    live "/:office", Live.Office, :index
   end
 
   # Other scopes may use custom stacks.

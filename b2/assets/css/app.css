@@ -158,3 +158,16 @@
 		opacity: 1;
 	}
 }
+.pool{
+  border: 2px solid blue;
+  height: 40vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.request-pool{
+  border: 3px dashed red;
+  height: 50vh;
+  width: 100%;
+  margin-bottom: 5px;
+}
