@@ -37,19 +37,17 @@ defmodule B1Web.Live.Offices do
 
   def render(assigns) do
     ~H"""
-    <div class="">
-    <%=inspect(assigns.form_display) %>
-
-    <button phx-click="toggle" class="button-10" phx-value-form_display={assigns.form_display}> Show </button>
-    <div id="offices" phx-update="replace" class="office_form">
-
+    <div class="m-auto">
+    <button id="btn" phx-click="toggle" class="button-10 text-red-500 m-auto mb-5"  phx-value-form_display={assigns.form_display}> Add Office </button>
+    <div id="offices" phx-update="replace" class="office_form m-auto">
+    <%= if assigns.form_display != "hidden" do %>
 
     <%= live_component(__MODULE__.OfficeForm, id: "office-form") %>
-
+    <% end %>
 
     </div>
 
-    <div class={grid_calculator(length(assigns.offices))} phx-update="prepend">
+    <div id="this" class={grid_calculator(length(assigns.offices))<>" m-auto"} phx-update="prepend">
 
     <%= for office <- assigns.offices do %>
       <%= live_component(__MODULE__.Office, office: office, id: office) %>
@@ -62,16 +60,6 @@ defmodule B1Web.Live.Offices do
     """
   end
 
-  defp grid_calculator(offices) when offices < 7, do: "grid grid-cols-3 gap-2"
-  defp grid_calculator(offices) do
-    IO.puts(div(offices, 2) |> Integer.to_string())
-    denom =
-    offices
-    |> div(2)
-    |> Integer.to_string()
-
-    "grid gap-2 grid-cols-" <> denom
-
-
-  end
+  defp grid_calculator(offices), do: "grid grid-cols-3 gap-2"
+  
 end

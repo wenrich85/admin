@@ -10,12 +10,13 @@ defmodule B1Web.Live.Offices.OfficeForm do
 
   def render(assigns) do
     ~H"""
-    <div>
+    <div class="">
     <.form let={f} for={assigns.office} phx-submit="save" phx-target={@myself} >
+      <aside>
       <%= label f, :office %>
-      <%= text_input f, :office %>
-
-      <%= submit "Save" %>
+      <%= text_input f, :office, class: "input" %>
+      </aside>
+      <%= submit "Save", class: "button-10" %>
     </.form>
     </div>
     """
